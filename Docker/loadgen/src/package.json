@@ -1,0 +1,15 @@
+{
+  "name": "session-load-test",
+  "version": "0.1.0",
+  "description": "load generation tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rbolton",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.69.0",
+    "winston": "^2.1.1"
+  }
+}
