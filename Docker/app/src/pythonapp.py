@@ -176,16 +176,6 @@ def addToCart():
 @app.route('/checkout')
 @httpretty.activate
 def checkout():
-    httpretty.enable()  # enable HTTPretty so that it will monkey patch the socket module
-    httpretty.register_uri(httpretty.GET, "http://amazon.com/",
-                           body='{"success": false}',
-                           status=500,
-                           content_type='text/json')
-    response = requests.get('http://amazon.com')
-    #expect(response.json()).to.equal({'success': False})
-    #expect(response.status_code).to.equal(500)
-    httpretty.disable()  # disable afterwards, so that you will have no problems in code that uses that socket module
-    httpretty.reset()
     return render_template('viewCatalog.html')
 
 #REDIS CACHE
