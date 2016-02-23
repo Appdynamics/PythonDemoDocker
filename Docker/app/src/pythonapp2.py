@@ -40,7 +40,6 @@ appPort = 1080
 @app.route("/")
 def main():
     conn = psycopg2.connect(database=postgresDatabase, user=postgresUser, host=postgresHost, port=postgresPort, password=postgresPassword)
-    #conn = psycopg2.connect(database='AppDynamicsPostgres', user='eric.johanson', host='localhost', port='5432', password='')
     conn.close()
     return render_template('index.html')
 
