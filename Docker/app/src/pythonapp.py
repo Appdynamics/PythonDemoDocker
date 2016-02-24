@@ -174,7 +174,6 @@ def addToCart():
 
 #DUMMY API CALL TO AMAZON
 @app.route('/checkout')
-@httpretty.activate
 def checkout():
     return render_template('viewCatalog.html')
 
@@ -186,7 +185,12 @@ def query_db():
 #CALL TO FUNCTION ABOVE
 @app.route('/viewCart')
 def viewCartItems():
-    return query_db()
+	randomNum = randint(1,10)
+
+    if randomNum == 1:
+		return query_db()
+    else:
+        return render_template('viewCatalog.html')
 
 @app.route('/viewCart-removeItem')
 def removeItem():
