@@ -20,7 +20,7 @@ RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/ss
 RUN mkdir /appdynamics
 ADD startup.sh /appdynamics/startup.sh
 #ADD startup.sh /usr/local/bin/startup.sh
-RUN chown postgres /appdynamics/startup.sh
+#RUN chown postgres /appdynamics/startup.sh
 #RUN chown postgres /usr/local/bin/startup.sh
 RUN chmod 777 /appdynamics/startup.sh
 #RUN chmod 777 /usr/local/bin/startup.sh
@@ -49,5 +49,6 @@ RUN echo "listen_addresses='*'" >> /etc/postgresql/9.3/main/postgresql.conf
 EXPOSE 5432
 EXPOSE 22
 
+USER root
 CMD /appdynamics/startup.sh
 #CMD /usr/local/bin/startup.sh
