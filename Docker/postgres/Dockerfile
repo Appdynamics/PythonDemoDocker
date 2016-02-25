@@ -10,6 +10,12 @@ RUN apt-get -y install postgresql
 RUN apt-get -y install libpq-dev
 RUN apt-get -y install postgresql-client
 
+# Setup SSH
+RUN apt-get -y install openssh-server
+RUN mkdir /var/run/sshd
+RUN echo 'root:welcome1' | chpasswd
+RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
 # Add startup script
 RUN mkdir /appdynamics
 ADD startup.sh /appdynamics/startup.sh
