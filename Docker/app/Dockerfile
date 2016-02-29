@@ -16,6 +16,7 @@ RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get -y build-dep pam
 RUN export CONFIGURE_OPTS=--disable-audit && cd /root && apt-get -b source pam && dpkg -i libpam-doc*.deb libpam-modules*.deb libpam-runtime*.deb libpam0g*.deb
+RUN apt-get install -y default-jre
 
 # Install packages
 RUN apt-get update
@@ -53,6 +54,16 @@ RUN pip install redis
 
 # Add app bits
 ADD /src /appdynamics/src
+
+# Install Machine Agent
+ENV MACHINE_AGENT_HOME /appdynamics/MachineAgent
+ADD /MachineAgent.zip /appdynamics/
+RUN mkdir /appdynamics/MachineAgent
+RUN unzip -o -d /appdynamics/MachineAgent /appdynamics/MachineAgent.zip
+ADD /startMachineAgent.sh /appdynamics/MachineAgent/
+RUN chmod 777 /appdynamics/MachineAgent/startMachineAgent.sh
+ADD /killMachineAgent.sh /appdynamics/MachineAgent/
+RUN chmod 777 /appdynamics/MachineAgent/killMachineAgent.sh
 
 # Add startup script
 ADD /startup.sh /appdynamics/

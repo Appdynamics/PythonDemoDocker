@@ -47,3 +47,11 @@ fi
 if [ -z "${BUNDY_APP}" ]; then
         export BUNDY_APP="localhost";
 fi
+
+if [ -z "${MACHINE_PATH_1}" ]; then
+        export MACHINE_PATH_1=Online-Retail
+fi
+
+if [ -z "${MACHINE_PATH_2}" ]; then
+        export MACHINE_PATH_2=${TIER_NAME}
+fi

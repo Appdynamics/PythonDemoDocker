@@ -1,3 +1,6 @@
 Docker/kill_app.sh
 Docker/start.sh
 Docker/startPython.sh
+Docker/4202
+Docker/app/MachineAgent.zip
+Docker/push.sh
