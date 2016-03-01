@@ -186,7 +186,7 @@ def query_db():
 @app.route('/viewCart')
 def viewCartItems():
 	randomNum = randint(1,10)
-
+    
     if randomNum == 1:
 		return query_db()
     else:
