@@ -38,6 +38,7 @@ pip install -U appdynamics
 
 # Start app
 echo "Using ${CONFIG_FILE} and ${APP_FILE}" > /tmp/startup.log
+#pyagent run -c /appdynamics/src/${CONFIG_FILE} python /appdynamics/src/${APP_FILE}
 nohup pyagent run -c /appdynamics/src/${CONFIG_FILE} python /appdynamics/src/${APP_FILE} &
 
 # Start Machine Agent

@@ -12,14 +12,14 @@ RUN mkdir -p /appdynamics
 #RUN chown -R appdynamics.appdynamics /appdynamics
 
 # Deploy libpam fix (allows cron to work)
-RUN apt-get update -y
+RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get -y build-dep pam
 RUN export CONFIGURE_OPTS=--disable-audit && cd /root && apt-get -b source pam && dpkg -i libpam-doc*.deb libpam-modules*.deb libpam-runtime*.deb libpam0g*.deb
-RUN apt-get install -y default-jre
 
 # Install packages
 RUN apt-get update
+RUN apt-get install -y default-jre
 RUN apt-get -y install postgresql
 RUN apt-get -y install build-essential
 RUN apt-get -y install locate
