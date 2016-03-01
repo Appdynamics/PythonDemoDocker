@@ -185,10 +185,10 @@ def query_db():
 #CALL TO FUNCTION ABOVE
 @app.route('/viewCart')
 def viewCartItems():
-	randomNum = randint(1,10)
+    randomNum = randint(1,10)
     #indent
     if randomNum == 1:
-	    return query_db()
+        return query_db()
     else:
         return render_template('viewCatalog.html')
 
