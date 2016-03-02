@@ -51,4 +51,4 @@ def signUp():
     return render_template('index.html')
 
 if __name__ == "__main__":
-    app.run(host=appHost, port=appPort, threaded=True, debug=False)
+    app.run(host=appHost, port=appPort, threaded=True, debug=True)

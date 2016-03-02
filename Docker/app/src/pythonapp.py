@@ -200,4 +200,4 @@ appHost = '0.0.0.0'
 appPort = 5000
 
 if __name__ == "__main__":
-    app.run(host=appHost, port=appPort, debug=False, threaded=True)
+    app.run(host=appHost, port=appPort, debug=True, threaded=True)
