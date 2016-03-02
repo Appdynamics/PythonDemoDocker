@@ -35,6 +35,7 @@ fi
 
 # Install appdynamics
 pip install -U appdynamics
+#pip install -U appdynamics\<4.2
 
 # Start app
 echo "Using ${CONFIG_FILE} and ${APP_FILE}" > /tmp/startup.log
