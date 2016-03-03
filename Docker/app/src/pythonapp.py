@@ -120,7 +120,7 @@ def showSignUp():
     cursor.execute("USE AppDynamics")
     cursor.execute("DROP TABLE IF EXISTS tbl_user")
     cursor.execute("FLUSH TABLES")
-    cursor.execute("CREATE TABLE tbl_user(Id INTEGER PRIMARY KEY, Name VARCHAR(20), Email VARCHAR(20))")
+    cursor.execute("CREATE TABLE IF NOT EXISTS tbl_user(Id INTEGER PRIMARY KEY, Name VARCHAR(20), Email VARCHAR(20))")
     booleanvalue = checkAccount()
     conn.commit()
     cursor.close()
