@@ -117,6 +117,7 @@ def checkAccount():
 def showSignUp():
     conn = mysql.connect()
     cursor = conn.cursor()
+    cursor.execute("USE AppDynamics")
     cursor.execute("DROP TABLE IF EXISTS tbl_user")
 	cursor.execute("FLUSH TABLES")
     cursor.execute("CREATE TABLE tbl_user(Id INTEGER PRIMARY KEY, Name VARCHAR(20), Email VARCHAR(20))")
