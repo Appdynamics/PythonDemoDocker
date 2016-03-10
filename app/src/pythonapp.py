@@ -118,7 +118,7 @@ def showSignUp():
     conn = mysql.connect()
     cursor = conn.cursor()
     cursor.execute("DROP TABLE IF EXISTS tbl_user")
-    cursor.execute("CREATE TABLE IF NOT EXISTS tbl_user(Id INTEGER PRIMARY KEY, Name VARCHAR(20), Email VARCHAR(20))")
+    cursor.execute("CREATE TABLE tbl_user(Id INTEGER PRIMARY KEY, Name VARCHAR(20), Email VARCHAR(20))")
     booleanvalue = checkAccount()
     conn.commit()
     cursor.close()
@@ -175,8 +175,6 @@ def addToCart():
 #DUMMY API CALL TO AMAZON
 @app.route('/checkout')
 def checkout():
-    req = urllib2.Request('http://52.32.89.151:80')
-    response = urllib2.urlopen(req)
     return render_template('viewCatalog.html')
 
 #REDIS CACHE
