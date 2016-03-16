@@ -175,7 +175,7 @@ def addToCart():
 #DUMMY API CALL TO AMAZON
 @app.route('/checkout')
 def checkout():
-    req = urllib2.Request('http://52.34.251.124:8080/front_tier/front_tier')`
+    req = urllib2.Request('http://52.34.251.124:8080/')`
     response = urllib2.urlopen(req)
     return render_template('viewCatalog.html')
 
