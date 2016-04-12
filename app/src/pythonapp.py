@@ -87,8 +87,7 @@ def checkAccount():
             for x in range(1,3000):
                 add_values = (x, '_email', '_password')
                 add_person = ("INSERT INTO tbl_user (Id, Name, Email) VALUES (%s, %s, %s)")
-                cursor.execute(add_person, add_values)
-                cursor.execute("SELECT * FROM tbl_user")
+                cursor.execute(add_person, add_values)                
         else:
             for x in range(1,750):
                 add_values = (x, '_email', '_password')
@@ -187,7 +186,7 @@ def query_db():
 #CALL TO FUNCTION ABOVE
 @app.route('/viewCart')
 def viewCartItems():
-    randomNum = randint(1,10)
+    randomNum = randint(1,20)
     #indent
     if randomNum == 1:
         return query_db()
