@@ -87,13 +87,14 @@ def checkAccount():
             for x in range(1,3000):
                 add_values = (x, '_email', '_password')
                 add_person = ("INSERT INTO tbl_user (Id, Name, Email) VALUES (%s, %s, %s)")
-                cursor.execute(add_person, add_values)                
+                cursor.execute(add_person, add_values)
+				cursor.execute("SELECT Id, Name, Email FROM tbl_user")                
         else:
             for x in range(1,750):
                 add_values = (x, '_email', '_password')
                 add_person = ("INSERT INTO tbl_user (Id, Name, Email) VALUES (%s, %s, %s)")
                 cursor.execute(add_person, add_values)
-                cursor.execute("SELECT * FROM tbl_user")
+                cursor.execute("SELECT Id, Name, Email FROM tbl_user")
     else:
         for x in range(1,500):
             add_values = (x, '_email', '_password')
